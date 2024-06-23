@@ -30,11 +30,12 @@ This project uses JWT for authenticating the users using tokens
      - host
      - password
      - Database name
-4. Start the application
+4. Run the following SQL commands to set up the database and users table.
+5. Start the application
 
        npm start
 
-5. Run the following endpoints in postman or any other api requests extensions
+6. Run the following endpoints in postman or any other api requests extensions
      - Register :
 
            POST -H "Content-Type: application/json" -d '{"username":"testuser","password":"testpass"}' http://localhost:3000/api/auth/register
@@ -46,6 +47,8 @@ This project uses JWT for authenticating the users using tokens
     - Access protected route:
 
           -H "x-access-token: your_jwt_token" http://localhost:3000/api/auth/protected
+
+  
 
 
 
