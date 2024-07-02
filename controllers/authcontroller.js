@@ -43,7 +43,7 @@ exports.login = (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).json({ message: `Please Provide username and password` });
+        return res.status(400).json({ message: `Please Provide email and password` });
     }
 
     User.findByEmail(email, (err, result) => {
@@ -59,7 +59,7 @@ exports.login = (req, res) => {
             if (err) throw err
 
             if (!isMatch) {
-                return res.status(400).json({ message: `Invalid email or password.` });
+                return res.status(400).json({ message: `Invalid email or password` });
             }
 
             // generating a token for the user
