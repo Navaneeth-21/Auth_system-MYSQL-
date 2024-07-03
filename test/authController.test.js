@@ -1,13 +1,12 @@
 const request = require("supertest");
-const express = require("express");
+const app = require("../app");
+require("dotenv").config();
 const bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const authRoutes = require("../routes/authRoutes");
 const authMiddleware = require("../middlewares/authMiddleware");
+const authRoutes = require("../routes/authRoutes");
 const User = require("../models/userModel");
-require("dotenv").config();
-const app = express();
 
 app.use(bodyParser.json());
 
@@ -146,6 +145,7 @@ describe("Profile routes", (done) => {
     jest.clearAllMocks();
   });
 
+  // Test for profile route
   it("should return profile and authenticate token", async () => {
     const user = {
       id: 1,
@@ -177,6 +177,25 @@ describe("Profile routes", (done) => {
       email: user.email,
     });
   });
+
+  // Test for if token is not provided
+  // it("should return 401 if token is not provided", async () => {
+  //   const response = await request(app).get("/api/profile");
+
+  //   console.log(response.status);
+
+  //   expect(response.body.message).toEqual("No Token provided");
+  // });
+
+  // Test  for if given token is invalid
+  // it('should return 403 if token is invalid' ,async()=>{
+  //    const response = await request(app)
+  //   .get("/api/profile")
+  //   .set("Authorization" , "Bearer invalid token");
+
+  //   expect(response.status).toBe(403);
+
+  // });
 });
 
 // working ......
