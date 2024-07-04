@@ -12,6 +12,7 @@ This project uses JWT for authenticating the users using tokens
 ## Technologies used
 
 - **Backend:** Express.js , MYSQL , JWT , RESTAPI
+- **Testing:** Jest,supertest
 
 ## Getting Started
 
@@ -46,7 +47,13 @@ This project uses JWT for authenticating the users using tokens
 
     - Access protected route:
 
-          -H "x-access-token: your_jwt_token" http://localhost:3000/api/auth/protected
+          -H "Authorization": Bearer <your_jwt_token> http://localhost:3000/api/auth/protected
+
+## Testing
+  Unit tests are written using jest. To run tests : 
+
+    npm test
+    
 
   
 
